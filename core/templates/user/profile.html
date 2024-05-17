@@ -1,0 +1,129 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item"><span>Home</span></li>
+    <li class="breadcrumb-item"><span>User</span></li>
+    <li class="breadcrumb-item active"><span>Profile</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <!-- /.row-->
+    <div class="row">
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+              </svg> 个人信息
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-paperclip"></use>
+                      </svg> 账户ID&emsp;：{{ user.EID }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-pen-nib"></use>
+                      </svg> 姓&emsp;名&emsp;：{{ user.Ename }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-phone"></use>
+                      </svg> 联系电话：{{ user.ContactNum }}
+                    </a>
+                  </li>
+                </ul>
+                <!-- /.row-->
+                <hr class="mt-4">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="list-group" id="list-tab" role="tablist">
+                      <a class="list-group-item list-group-item-action" id="list-company-list" data-coreui-toggle="list" href="#list-company" role="tab" aria-controls="list-company">
+                        <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bank"></use>
+                        </svg> 所属公司：{{ company.Cname }}
+                      </a>
+                      <a class="list-group-item list-group-item-action" id="list-department-list" data-coreui-toggle="list" href="#list-department" role="tab" aria-controls="list-department">
+                        <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lan"></use>
+                        </svg> 所属部门：{{ department.Dname }}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade" id="list-company" role="tabpanel" aria-labelledby="list-company-list">
+                        {{ company.Cname }}
+                        <br>
+                        {{ company.Description }}
+                      </div>
+                      <div class="tab-pane fade" id="list-department" role="tabpanel" aria-labelledby="list-department-list">
+                        {{ department.Dname }}
+                        <br>
+                        {{ department.Description }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row-->
+                <hr class="mt-4">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="list-group" id="list-tab-2" role="tablist">
+                      <a class="list-group-item list-group-item-action" id="list-authority-list" data-coreui-toggle="list" href="#list-authority" role="tab" aria-controls="list-authority">
+                        <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bolt"></use>
+                        </svg> 账户权限：{{ user.Role }}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="tab-content" id="nav-tabContent-2">
+                      <div class="tab-pane fade" id="list-authority" role="tabpanel" aria-labelledby="list-authority-list">
+                        当前账户权限：{{ user.Role }}
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-->
+              <br>
+              <hr class="mt-4">
+
+              </div>
+              <!-- /.col-->
+            </div>
+            <!-- /.row--><br>
+          </div>
+        </div>
+      <!-- /.col-->
+    </div>
+  </div>
+    <!-- /.row-->
+</div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="js/components.js"></script>
+{% endblock %}

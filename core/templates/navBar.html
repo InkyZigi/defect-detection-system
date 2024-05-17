@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v4.2.2
+* @link https://coreui.io/product/free-bootstrap-admin-template/
+* Copyright (c) 2023 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://github.com/coreui/coreui-free-bootstrap-admin-template/blob/main/LICENSE)
+-->
+
+<!-- Breadcrumb-->
+{% load static %}
+<html lang="zh-CN">
+  <head>
+    <base href="{% static 'coreui/dist/' %}">
+<!--    <base href="coreui/dist/">-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="智能工业视觉缺陷检测系统，致力于为全球制造业企业提供高效、精准的视觉检测解决方案">
+    <meta name="author" content="Master">
+    <meta name="keyword" content="工业视觉,深度学习,缺陷检测,系统设计,数据可视化">
+    <title>智能工业视觉缺陷检测系统</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="node_modules/simplebar/dist/simplebar.css">
+    <link rel="stylesheet" href="css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link href="css/examples.css" rel="stylesheet">
+    <link href="node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+        <img class="sidebar-brand-full" width="168" height="46" alt="Detection Logo" src="assets/brand/logo.png">
+        <img class="sidebar-brand-narrow" width="46" height="46" alt="Detection Logo" src="assets/brand/logo-icon.png">
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+        <li class="nav-item"><a class="nav-link" href="{% url 'detection:index' %}">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
+            </svg> 控制台</a></li>
+        <li class="nav-title">功能区</li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use>
+            </svg> 生产管理</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:sheet' %}">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list"></use></svg> 任务管理</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-chart-line"></use></svg> 数据可视化</a></li>
+          </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-3d"></use>
+            </svg> 模型管理</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:model' %}#sectionA">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-life-ring"></use></svg> 模型选择</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:model' %}#sectionB">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-layers"></use></svg> 参数调整</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:model' %}#sectionC">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-memory"></use></svg> 计算效率</a></li>
+          </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lightbulb"></use>
+            </svg> 数据检索</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="base/accordion.html">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-magnifying-glass"></use></svg> 精准搜索</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-puzzle"></use></svg> 历史数据</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-loop-circular"></use></svg> 相似度计算</a></li>
+          </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-print"></use>
+            </svg> 报告管理</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="base/accordion.html">
+                <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-library"></use></svg> 报告生成</a></li>
+          </ul>
+        </li>
+        <li class="nav-divider"></li>
+        <li class="nav-title">综合区</li>
+        <li class="nav-group">
+          <a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-star"></use>
+            </svg> 系统</a>
+            <ul class="nav-group-items">
+              <li class="nav-item"><a class="nav-link" href="login.html" target="_top">
+                  <svg class="nav-icon">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-description"></use>
+                  </svg> 系统说明</a></li>
+              <li class="nav-item"><a class="nav-link" href="register.html" target="_top">
+                  <svg class="nav-icon">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-description"></use>
+                  </svg> 操作说明</a></li>
+            </ul>
+          <a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-description"></use>
+            </svg> 技术文档</a>
+          <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-layers"></use>
+            </svg> 前端支持</a>
+        </li>
+        <li class="nav-item mt-auto"><a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+            </svg> 退出系统</a></li>
+      </ul>
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+          <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            <svg class="icon icon-lg">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
+            </svg>
+          </button><a class="header-brand d-md-none" href="#">
+            <svg width="118" height="46" alt="System Logo">
+              <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg></a>
+          <ul class="header-nav d-none d-md-flex">
+            <li class="nav-item"><a class="nav-link" href="#">控制台</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:profile' %}">账户信息</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">环境设置</a></li>
+          </ul>
+          <ul class="header-nav ms-auto">
+            <li class="nav-item"><a class="nav-link">
+                <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-sun"></use>
+                </svg>欢迎回来: {{request.session.realName}}</a></li>
+            <li class="nav-item"><a class="nav-link realtime-clock">
+                <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-clock"></use>
+                </svg></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
+                </svg></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use>
+                </svg></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg class="icon icon-lg">
+                  <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
+                </svg></a></li>
+          </ul>
+          <ul class="header-nav ms-3">
+            <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-md">
+                  <img class="avatar-img" src="https://ui-avatars.com/api/?name={{ request.session.realName }}" alt="user@email.com"></div></a>
+              <div class="dropdown-menu dropdown-menu-end pt-0">
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">
+                    <svg class="icon me-2">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-info"></use>
+                    </svg>账户信息
+                  </div>
+                </div>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use>
+                  </svg> 信息<span class="badge badge-sm bg-success ms-2">42</span></a>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-task"></use>
+                  </svg> 当前任务<span class="badge badge-sm bg-danger ms-2">42</span></a>
+                <a class="dropdown-item" href="#">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-history"></use>
+                  </svg> 历史信息
+              </a>
+                <div class="dropdown-header bg-light py-2">
+                  <div class="fw-semibold">
+                    <svg class="icon me-2">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-cog"></use>
+                    </svg>环境配置
+                  </div>
+                </div>
+                <a class="dropdown-item" href="{% url 'detection:profile' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+                  </svg> 个人信息</a>
+                <a class="dropdown-item" href="{% url 'detection:organization' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lan"></use>
+                  </svg> 组织</a>
+                <a class="dropdown-item" href="{% url 'detection:settings' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-settings"></use>
+                  </svg> 设置</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'detection:authority' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bolt"></use>
+                  </svg> 权限说明</a>
+                <a class="dropdown-item" href="{% url 'detection:logout' %}">
+                  <svg class="icon me-2">
+                    <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+                  </svg> 退出系统</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="header-divider"></div>
+        <div class="container-fluid">
+          {% block breadcrumb %}
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+              <li class="breadcrumb-item">
+                <!-- if breadcrumb is single--><span>Home</span>
+              </li>
+              <li class="breadcrumb-item active"><span>Dashboard</span></li>
+            </ol>
+          </nav>
+          {% endblock %}
+        </div>
+      </header>
+        {% block content %}
+      <div class="body flex-grow-1 px-3"></div>
+        {% endblock %}
+      <footer class="footer">
+        <div><a href="https://coreui.io">智能工业视觉缺陷检测系统</a> 2024 上海理工大学.</div>
+        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI/Django</a></div>
+      </footer>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <script src="node_modules/simplebar/dist/simplebar.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="node_modules/chart.js/dist/chart.min.js"></script>
+    <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script>
+    <script src="node_modules/@coreui/utils/dist/coreui-utils.js"></script>
+
+      {% block script %}
+      <script src="js/components.js"></script>
+      {% endblock %}
+  </body>
+</html>

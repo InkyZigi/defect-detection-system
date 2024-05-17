@@ -1,0 +1,197 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item"><span>Home</span></li>
+    <li class="breadcrumb-item"><span>Tasks</span></li>
+    <li class="breadcrumb-item active"><span>Sheets</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <!-- /.row-->
+    <div class="row">
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-plant"></use>
+              </svg> 操作列表
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="docs-example m-0 border-0">
+                  <form action="" method="GET">
+                    <button type="submit" name="sheet" value="recent" class="btn btn-ghost-primary">近期工单</button>
+                    <button type="button" class="btn btn-ghost-info" id="liveToastBtn">新建工单</button>
+                  {% if request.session.role == "Manager" or request.session.role == "Admin" %}
+                    <button type="submit" name="sheet" value="review" class="btn btn-ghost-warning">工单审批</button>
+                  {% endif %}
+                    <button type="submit" name="sheet" value="reviewed" class="btn btn-ghost-success">已审批工单</button>
+                    <button type="submit" name="sheet" value="reviewing" class="btn btn-ghost-danger">未审批工单</button>
+                  </form>
+                  </div>
+                  <!--  new_box  -->
+                  <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-coreui-autohide="false">
+                      <div class="toast-header">
+                        <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-playlist-add"></use>
+                        </svg>
+                        <strong class="me-auto">新建工单</strong>
+                        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                      <div class="toast-body">
+                        <!--form-->
+                        <form action="" method="POST">
+                          {% csrf_token %}
+                          <div class="col-md-4 input-group mb-3 flex-nowarp">
+                              <span class="input-group-text">工单编号</span>
+                              <input type="text" class="form-control" id="FormControlSID" name="SID" value="" required>
+                          </div>
+                          <div class="col-md-4 input-group mb-3 flex-nowarp">
+                              <span class="input-group-text">清单类型</span>
+                              <input type="text" class="form-control" id="FormControlTask" name="Task" value="" required>
+                          </div>
+                          <div class="col-md-4 input-group mb-3 flex-nowarp">
+                              <span class="input-group-text">清单内容</span>
+                            <textarea class="form-control" id="FormControlContent" name="Content" required></textarea>
+                          </div>
+                          <div class="col-md-4 input-group mb-3 flex-nowarp">
+                            <span class="input-group-text">下单日期：</span>
+                          </div>
+                          <input type="text" class="" id="datepicker-1" name="OrderDate" required>
+                          <div class="col-md-4 input-group mb-3 flex-nowarp">
+                            <span class="input-group-text">预期完成日期：</span>
+                          </div>
+                          <input type="text" class="" id="datepicker-2" name="TargetDate" required>
+                          <div class="mt-2 pt-2 border-top">
+                            <button type="submit" name="action" value="create" class="btn btn-primary btn-sm">提交</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-coreui-dismiss="toast">取消</button>
+                          </div>
+                        </form>
+                        <!--form-->
+                    </div>
+                  </div>
+                  </div>
+                  <!--  new_box  -->
+                  <!--  alert_box  -->
+                  {% if alert %}
+                    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+                      <div id="" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                          <svg class="icon me-2">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-playlist-add"></use>
+                          </svg>
+                          <strong class="me-auto">结果提示</strong>
+                          <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                          {{alert}}
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                  <!--  alert_box  -->
+            </div>
+              <!-- /.col-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-border-all"></use>
+              </svg> 我的工单列表(员工编号：{{ request.session.uid }})
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-success table-striped-columns table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">工单编号</th>
+                      <th scope="col">清单内容</th>
+                      <th scope="col">下单日期</th>
+                      <th scope="col">预期完成日期</th>
+                      <th scope="col">实际完成日期</th>
+                      <th scope="col">审批状态</th>
+                      {% if action != "reviewed" %}
+                      <th scope="col">操作</th>
+                      {% endif %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for sheet in sheet_list %}
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{ sheet.SID }}</td>
+                      <td>{{ sheet.Production.task|default:"" }}</td>
+                      <td>{{ sheet.OrderDate }}</td>
+                      <td>{{ sheet.TargetDate }}</td>
+                      <td>{{ sheet.EndDate|default:"" }}</td>
+                      <td>{% if sheet.Approval %}通过{% else %}未通过{% endif %}</td>
+                      {% if action != "reviewed" %}
+                      <td>
+                        {% if action == "review" %}
+                        <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                        {% endif %}
+                         <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-pen"></use>
+                        </svg>
+                         <svg class="icon me-2">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-x"></use>
+                        </svg>
+                      </td>
+                      {% endif %}
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <!-- /.row-->
+              </div>
+              <br>
+              <hr class="mt-0">
+
+            </div>
+              <!-- /.col-->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <!-- /.row-->
+</div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="js/components.js"></script>
+  <script src="js/toasts.js"></script>
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script>
+    $(function() {
+      $( "#datepicker-1" ).datepicker();
+      $( "#datepicker-2" ).datepicker();
+    });
+  </script>
+{% endblock %}

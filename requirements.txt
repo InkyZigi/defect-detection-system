@@ -1,0 +1,6 @@
+# pipreqs ./ --encoding=utf8
+
+Django==4.1.12
+djangorestframework==3.14.0
+openai==1.12.0
+protobuf==4.25.3

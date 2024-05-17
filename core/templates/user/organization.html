@@ -1,0 +1,84 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item"><span>Home</span></li>
+    <li class="breadcrumb-item"><span>User</span></li>
+    <li class="breadcrumb-item active"><span>Organization</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <!-- /.row-->
+    <div class="row">
+      <!-- /.col-->
+      <div class="col-md-12" id="sectionB">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lan"></use>
+              </svg> 组织信息
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-paperclip"></use>
+                      </svg> 部门名称：{{ department.Dname }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-pen-nib"></use>
+                      </svg> 部门管理：{{ department.Dmanager.Ename }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-phone"></use>
+                      </svg> 联系电话：{{ department.Dmanager.ContactNum }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-screen-desktop"></use>
+                      </svg> 部门职能：<p style="white-space: normal;">{{ department.Description }}</p>
+                    </a>
+                  </li>
+                </ul>
+                <!-- /.row-->
+                <br>
+                <hr class="mt-0">
+              </div>
+              <!-- /.col-->
+              <br>
+              <hr class="mt-0">
+
+              </div>
+              <!-- /.col-->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <!-- /.row-->
+</div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="js/components.js"></script>
+{% endblock %}

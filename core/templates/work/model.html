@@ -1,0 +1,231 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-0 ms-2">
+        <li class="breadcrumb-item"><span>Home</span></li>
+        <li class="breadcrumb-item"><span>Workspace</span></li>
+        <li class="breadcrumb-item active"><span>Model</span></li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+    <div class="container-lg">
+        <div class="row">
+        <!--SectionA-->
+            <div class="col-12" id="sectionA">
+                <div class="card  mb-3">
+                  <div class="card-header">Header</div>
+                  <div class="card-body">
+                    <h5 class="card-title">模型状态:</h5>
+                      {% if on_model %}
+                        <p class="card-text">正在使用 {{on_model.MID}}</p>
+                    {% else %}
+                        <p class="card-text">目前未使用模型</p>
+                    {% endif %}
+
+                  </div>
+                </div>
+            </div>
+<!--models-->
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <strong>模型选择</strong>
+                        <br>
+                        <span class="small ms-1">图像检测算法</span>
+                    </div>
+                    <div class="card-body">
+                        <nav>
+                          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link {% if on_model.MID == 'STFPM' or on_model.MID is None %} active {% endif %}" id="nav-M1-tab" data-coreui-toggle="tab" data-coreui-target="#nav-M1" type="button" role="tab" aria-controls="nav-M1" aria-selected="true">STFPM</button>
+                            <button class="nav-link {% if on_model.MID == 'SPADE' %} active {% endif %}" id="nav-M2-tab" data-coreui-toggle="tab" data-coreui-target="#nav-M2" type="button" role="tab" aria-controls="nav-M2" aria-selected="false">SPADE</button>
+                            <button class="nav-link {% if on_model.MID == 'PANDA' %} active {% endif %}" id="nav-M3-tab" data-coreui-toggle="tab" data-coreui-target="#nav-M3" type="button" role="tab" aria-controls="nav-M3" aria-selected="false">PANDA</button>
+                          </div>
+                        </nav>
+                        <br>
+                        <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade {% if on_model.MID == 'STFPM' or on_model.MID is None %} show active {% endif %}" id="nav-M1" role="tabpanel" aria-labelledby="nav-M1-tab" tabindex="0">
+                              &emsp;<p>{{ models.STFPM.Description |default:"" }}</p></div>
+                          <div class="tab-pane fade {% if on_model.MID == 'SPADE' %} show active {% endif %}" id="nav-M2" role="tabpanel" aria-labelledby="nav-M2-tab" tabindex="0">
+                              &emsp;<p>{{ models.SPADE.Description |default:"" }}</p></div>
+                          <div class="tab-pane fade {% if on_model.MID == 'PANDA' %} show active {% endif %}" id="nav-M3" role="tabpanel" aria-labelledby="nav-M3-tab" tabindex="0">
+                              &emsp;<p>{{ models.PANDA.Description |default:"" }}</p></div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" onclick="submitInfo();refresh();">切换模型</button>
+                    </div>
+                </div>
+            </div>
+
+
+<!--models-->
+<!--            <div class="col-sm-4">-->
+<!--                <div class="card mb-4">-->
+<!--                    <div class="card-header"><strong>Card</strong><span class="small ms-1">Kitchen sink</span></div>-->
+<!--                    <img src="assets/img/full.jpg" class="card-img-top" alt="...">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Special title treatment</h5>-->
+<!--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+<!--                        <a href="#" class="btn btn-success">切换模型</a>-->
+<!--                        <a href="#" class="btn btn-info">详细信息</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <!--SectionB-->
+            <div class="col-12" id="sectionB">
+              <div class="card mb-4">
+                <div class="card-header"><strong>参数调整</strong></div>
+                <div class="card-body">
+                  <p class="text-medium-emphasis small">参数详情</p>
+                    {% if on_model.Params %}
+                    {% for k, v in on_model.Params.items %}
+                    <p>{{ k }}：{{ v }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+              </div>
+            </div>
+            <!--Section-->
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header"><strong>图像检测</strong></div>
+                <div class="card-body">
+                  <p class="text-medium-emphasis small">上传图像后根据已选的模型进行异常检测</p>
+                    <form action="" method="post" class="row g-3 align-items-center needs-validation" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="input-group">
+                          <input type="file" class="form-control" name="image" id="inputGroupFile" aria-describedby="inputGroupFileAdd" aria-label="Upload">
+                            <select class="col-sm-3" name="material" id="inputGroupFileAdd">
+                                <option selected></option>
+                                <option value="bottle">玻璃瓶底部 Bottle</option>
+                                <option value="cable">电缆 Cable</option>
+                                <option value="capsule">胶囊 Capsule</option>
+                                <option value="carpet">地毯 Carpet</option>
+                                <option value="grid">金属网格 Grid</option>
+                                <option value="hazelnut">榛子 Hazelnut</option>
+                                <option value="leather">皮革 Leather</option>
+                                <option value="metal_nut">金属螺母 Metal_nut</option>
+                                <option value="pill">药丸 Pill</option>
+                                <option value="screw">螺丝 Screw</option>
+                                <option value="tile">瓷砖 Tile</option>
+                                <option value="toothbrush">牙刷 Toothbrush</option>
+                                <option value="transistor">晶体管 Transistor</option>
+                                <option value="wood">木板 Wood</option>
+                                <option value="zipper">拉链 Zipper</option>
+                              </select>
+                        </div>
+                        {% if results %}
+
+                        {% endif %}
+                        <div class="col-12">
+                            <button class="btn btn-primary" name="action" value="detection" type="submit">缺陷检测</button>
+                        </div>
+                    </form>
+
+                </div>
+
+              </div>
+            </div>
+            <!--Section-->
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header"><strong>检测结果</strong></div>
+                <div class="card-body">
+                  <p class="text-medium-emphasis small">检测结果包括输入输出系列图与各层次尺度异常热力图</p>
+                    <div class="text-center">
+                        <div class="card-header"><strong>输入输出系列图</strong></div>
+                        <div class="card-body container">
+                            <div class="row align-items-center">
+                                <div class="col-4">
+                                    <p>待测物件图像</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                                <div class="col-4">
+                                    <p>综合异常热力图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_amap.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                                <div class="col-4">
+                                    <p>综合热力实物合成图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_amap_on_img.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header"><strong>各层次尺度异常热力图</strong></div>
+                        <div class="card-body container text-center">
+                            <div class="row align-items-center">
+                                <div class="col-4">
+                                    <p>原16×16尺度异常热力图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am16.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                                <div class="col-4">
+                                    <p>原32×32尺度异常热力图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am32.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                                <div class="col-4">
+                                    <p>原64×64尺度异常热力图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am64.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header"><strong>最终缺陷检测结果</strong></div>
+                        <div class="card-body container text-center">
+                            <div class="row align-items-center">
+                                <div class="col-4">
+                                    <p>黑白缺陷检测图</p>
+                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_gt.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if results %}
+
+                    {% endif %}
+                </div>
+
+              </div>
+            </div>
+            <!--SectionC-->
+            <div class="col-12" id="sectionC">
+              <div class="card mb-4">
+                <div class="card-header"><strong>计算效率</strong></div>
+                <div class="card-body">
+
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    // JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script><script src="js/model.js"></script>
+{% endblock %}

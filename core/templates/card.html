@@ -1,0 +1,49 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item">
+      <!-- if breadcrumb is single--><a href="#">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+      <!-- if breadcrumb is single--><a href="#">Components</a>
+    </li>
+    <li class="breadcrumb-item">
+      <!-- if breadcrumb is single--><a href="#">Base</a>
+    </li>
+    <li class="breadcrumb-item active"><span>Cards</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-header"><strong>Card</strong><span class="small ms-1">Kitchen sink</span></div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header"><strong>Card</strong><span class="small ms-1">Kitchen sink</span></div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+{% endblock %}

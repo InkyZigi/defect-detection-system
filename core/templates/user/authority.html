@@ -1,0 +1,244 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item"><span>Home</span></li>
+    <li class="breadcrumb-item"><span>User</span></li>
+    <li class="breadcrumb-item active"><span>Authority</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <!-- /.row-->
+    <div class="row">
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bolt"></use>
+              </svg> 权限说明
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-paperclip"></use>
+                      </svg> 账户ID&emsp;：{{ request.session.uid }}
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="dropdown-item">
+                      <svg class="icon me-2">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-pen-nib"></use>
+                      </svg> 账户权限：{{ role }}
+                    </a>
+                  </li>
+                </ul>
+                <!-- /.row-->
+              </div>
+              <!-- /.col-->
+              <br>
+              <hr class="mt-4">
+
+              </div>
+              <!-- /.col-->
+            </div>
+            <!-- /.row--><br>
+            <div class="table-responsive">
+              <table class="table border mb-0">
+                <thead class="table-light fw-semibold">
+                  <tr class="align-middle">
+                    <th class="text-center">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-people"></use>
+                      </svg>&nbsp;权限角色</th>
+                    <th class="text-center">
+                      <svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-file"></use>
+                      </svg>&nbsp;主页浏览</th>
+                    <th class="text-center"><svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user-plus"></use>
+                      </svg>&nbsp;创建新用户</th>
+                    <th class="text-center"><svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+                      </svg>&nbsp;修改用户信息</th>
+                    <th class="text-center"><svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-folder-open"></use>
+                      </svg>&nbsp;项目管理</th>
+                    <th class="text-center"><svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-task"></use>
+                      </svg>&nbsp;工单管理</th>
+                    <th class="text-center"><svg class="icon">
+                        <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-memory"></use>
+                      </svg>&nbsp;模型管理</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="align-middle {% if role == 'Operator' %} bg-success {% endif %}">
+                    <td class="text-center">
+                      <div class="avatar avatar-md">操作员（Operator）</div>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr class="align-middle {% if role == 'Manager' %} bg-success {% endif %}">
+                      <td class="text-center">
+                        <div class="avatar avatar-md">管理员（Manager）</div>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                    </tr>
+                  <tr class="align-middle {% if role == 'Admin' %} bg-success {% endif %}">
+                      <td class="text-center">
+                        <div class="avatar avatar-md">超级管理员（Admin）</div>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                      <td class="text-center">
+                        <svg class="icon me-2 icon-xl">
+                            <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                        </svg>
+                      </td>
+                    </tr>
+                  <tr class="align-middle {% if not role %} bg-success {% endif %}">
+                    <td class="text-center">
+                      <div class="avatar avatar-md">游客（Visitor）</div>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-check"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                    <td class="text-center">
+                      <svg class="icon me-2 icon-xl">
+                          <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-ban"></use>
+                      </svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <!-- /.col-->
+    </div>
+  </div>
+    <!-- /.row-->
+</div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="js/components.js"></script>
+{% endblock %}

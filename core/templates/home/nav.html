@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+
+  <base href="{% static 'assets/' %}">
+
+  <title>{{page.title}}</title>
+
+
+
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+  <meta name="description" content="Powerful and easy to use software to build professional websites, blogs or ecommerce stores" />
+  <meta name="keywords" content="cms, page builder, drag and drop, ecommerce, ecommerce platform, designer, developer, php, bootstrap 5">
+  <meta name="author" content="Vvveb">
+  <link rel="canonical" href="https://www.vvveb.com/">
+
+  <meta itemprop="name" content="Vvveb">
+  <meta itemprop="description" content="Powerful and easy to use software to build professional websites, blogs or ecommerce stores.">
+  <meta itemprop="url" content="https://www.vvveb.com/">
+  <meta itemprop="keywords" content="cms, page builder, drag and drop, ecommerce, ecommerce platform, designer, developer, php, bootstrap 5">
+  <meta itemprop="image" content="/img/favicon/228x228.png">
+  <meta itemprop="sourceOrganization" content="Vvveb">
+  <meta itemprop="inLanguage" content="en-US">
+
+  <script type="application/ld+json" id="ldJsonScript">
+   {
+	  "@context": "http://schema.org",
+	  "@graph": [
+		{
+		  "@type": "Organization",
+		  "@id": "https://www.vvveb.com/#organization",
+		  "url": "https://www.vvveb.com",
+		  "logo": "https://www.vvveb.com/img/favicon/256x256.png",
+		  "sameAs": [
+			"https://twitter.com/vvveb",
+			"https://www.facebook.com/vvveb.com",
+			"https://youtube.com/vvveb",
+			"https://www.linkedin.com/company/vvveb-com",
+			"https://plus.google.com/+VvvebCom"
+		  ]
+		},
+		{
+		  "@type": "WebSite",
+		  "@id": "https://www.vvveb.com/#website",
+		  "url": "https://www.vvveb.com",
+		  "name": "Vvveb"
+		},
+		{
+		  "@type": "WebPage",
+		  "@id": "https://www.vvveb.com/#webpage",
+		  "url": "https://www.vvveb.com/",
+		  "name": "Vvveb"
+		}
+	  ]
+	}
+</script>
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@vvveb">
+
+  <meta name="twitter:label1" content="Platform">
+  <meta name="twitter:data1" content="Vvveb">
+  <meta name="twitter:label2" content="Software">
+  <meta name="twitter:data2" content="CMS">
+
+
+  <meta property="og:title" content="Vvveb">
+  <meta property="og:site_name" content="Vvveb">
+  <meta property="og:url" content="https://www.vvveb.com/">
+  <meta property="og:description" content="Powerful and easy to use software to build professional websites, blogs or ecommerce stores">
+  <meta property="fb:app_id" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://www.vvveb.com/img/favicon/228x228.png">
+
+
+
+  <!-- HTML Meta Tags -->
+  <title>Begin each day by telling yourself</title>
+  <meta name="description" content="Powerful and easy to use software to build professional websites, blogs or ecommerce stores.">
+
+{% block style %}
+
+  <link id="landing-css" href="css/style.bundle.css" rel="stylesheet" media="screen">
+
+
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+
+  <link rel="icon" type="image/x-icon" href="media/favicon32.ico" data-v-global-site-favicon>
+
+<!--  <link rel="manifest" href="/manifest.webmanifest">####For Mobile App####-->
+
+  <link rel="alternate" hreflang="" href="" />
+
+{% endblock %}
+
+</head>
+
+
+<body class="{% if topic == 'home' %}topic{% else %}page{% endif %}">
+
+<nav class="navigation-3 clearfix {% if topic == 'home' %} fixed-top transparent {% endif %}" title="navigation" data-v-save-global="index.html,.navigation-3">
+    <div id="top" class="top-nav clearfix" data-bs-theme="{% if theme == 'dark' %}{{theme}}{% endif %}">
+      <div class="container">
+        <div class="d-flex justify-content-between  flex-md-row d-flex flex-column flex-md-row">
+          <div class="nav">
+            <ul class="list-inline" data-v-component-site>
+              <li class="list-inline-item" data-v-if="site.description.phone-number">
+                <a href="tel:+86 18117201781" class="p-2 p-md-0" title="Phone" data-v-site-description-phone-number>
+                  <i class="la la-phone"></i>
+                  <span class=" text-muted" data-v-site-description-phone-number>+86 18117201781</span>
+                </a>
+              </li>
+              <li class="list-inline-item" data-v-if="site.contact-email">
+                <a href="mailto:1635987935@qq.com" class="p-2 p-md-0" title="Email" data-v-site-contact-email>
+                  <i class="la la-envelope"></i>
+                  <span class=" text-muted" data-v-site-contact-email>1635987935@qq.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <div data-v-component-language>
+                  <span class="" data-v-language-info-name id="translate"></span>
+                </div>
+              </li>
+              <li class="list-inline-item">
+                <a id="color-theme-switch" class="p-2 p-md-0" href="javascript:void(0);" role="button" title="Switch sidebar color theme">
+                  <i class="la la-sun la-lg"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="navbar navbar-expand-md {% if theme == 'dark' %} navbar-dark {% endif %}">
+
+      <div class="container">
+
+        <div data-v-component-site>
+          <a class="navbar-brand" href="/" data-v-url-params='{"host":"www.*.*"}'>
+            <span class="visually-hidden">Logo</span>
+            <img src="img/logo.png" alt="Site logo" loading="lazy" class="logo-default" data-v-site-logo>
+            <img src="img/logo.png" alt="Site logo sticky" loading="lazy" class="logo-sticky" data-v-site-logo-sticky>
+            <img src="img/logo.png" alt="Site logo dark" loading="lazy" class="logo-default-dark" data-v-site-logo-dark>
+            <img src="img/logo.png" alt="Site logo dark sticky" loading="lazy" class="logo-default-dark-sticky" data-v-site-logo-dark-sticky>
+          </a>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar" data-v-component-menu="header" data-v-slug="main-menu">
+          <ul class="navbar-nav ms-auto" data-v-menu-items>
+            <li class="nav-item dropdown position-static" data-v-menu-item data-v-class-if-has-dropdown="category.children > 0" data-v-class-if-position-static="category.has-text">
+
+<!--           Menu_1-->
+
+              <a class="nav-link dropdown-toggle" href="#" data-v-class-if-dropdown-toggle="category.children > 0" aria-expanded="false" data-v-menu-item-url>
+                <span data-v-menu-item-name data-v-if-not="category.type = 'text'"></span>
+                <span data-v-menu-item-content>
+                    <img src="media/product-checked.svg" height="24" alt="" class="me-2">Product
+                </span>
+              </a>
+
+              <div class="dropdown-menu" data-v-menu-item-recursive>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="{% url 'home:system_design' %}" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'"></span>
+                    <span data-v-menu-item-content>
+                      <div class="row">
+                        <div class="col-6 align-self-center">
+                          <img src="img/sections/product/scene_1.jpg" alt="Post" width="250" loading="lazy" class="rounded img-fluid">
+                        </div>
+                        <div class="col-6">
+                          <h4>Product Design</h4>
+                          <p class="text-muted">More Details in Documents</p>
+                          <ul class="list-unstyled">
+                            <li class="text-primary">Algorithm Design</li>
+                            <li class="text-primary">System Design</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">GitHub Documentation</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+<!--        Menu_2 -->
+
+            <li class="nav-item dropdown" data-v-menu-item>
+              <a class="nav-link dropdown-toggle" href="https://blog.vvveb.com" data-v-menu-item-url>
+                <span data-v-menu-item-name>
+                  <img src="media/suggest.svg" height="24" alt="" class="me-2">Solutions
+                </span>
+              </a>
+
+              <div class="dropdown-menu" data-v-menu-item-recursive>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="{% url 'home:design' %}" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Frontend Design</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="{% url 'home:tech_support' %}" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Technology Support</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+<!--        Menu_3-->
+            <li class="nav-item dropdown" data-v-menu-item>
+              <a class="nav-link dropdown-toggle" href="https://blog.vvveb.com" data-v-menu-item-url>
+                <span data-v-menu-item-name>
+                  <img src="media/money-funds.svg" height="24" alt="" class="me-2">Resources
+                </span>
+              </a>
+
+              <div class="dropdown-menu" data-v-menu-item-recursive>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="https://coreui.io/bootstrap/docs/" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">CoreUI Development Document</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="https://dev.vvveb.com/" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Vvveb Development Document</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="https://www.freepik.com/" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Free Illustrations</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="http://translate.zvo.cn/" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Online Translating Service</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+
+<!--        Menu_4-->
+            <li class="nav-item dropdown" data-v-menu-item>
+              <a class="nav-link dropdown-toggle" href="https://blog.vvveb.com" data-v-menu-item-url>
+                <span data-v-menu-item-name>
+                  <img src="media/customer-group-fill.svg" height="24" alt="" class="me-2">Cooperation
+                </span>
+              </a>
+
+              <div class="dropdown-menu" data-v-menu-item-recursive>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="{% url 'home:contact' %}" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">Contact Us</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+                <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
+                  <a class="dropdown-item" href="{% url 'home:about' %}" data-v-menu-item-url>
+                    <span data-v-menu-item-name data-v-if-not="category.type = 'text'">About Us</span>
+                    <span data-v-menu-item-content></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+<!--        Menu_5-->
+            <li class="nav-item" data-v-menu-item>
+              <a class="nav-link" href="{% url 'detection:index' %}" data-v-menu-item-url>
+                <span data-v-menu-item-name>
+                  <img src="media/dashboard.svg" height="24" alt="" class="me-2">Dashboard
+                </span>
+              </a>
+            </li>
+
+          </ul>
+
+          <div class="search-area toggle-hover">
+            <form action="/search" method="get" data-v-action="/search">
+              <input type="hidden" name="route" value="search">
+              <div class="input-group">
+                <input type="search" name="search" class="form-control" id="headerSearch" placeholder="Type for search" data-v-vvveb-action="search" data-v-vvveb-on="keyup">
+                <button class="btn border-0" type="submit" title="Search">
+                  <div class="la-flip-horizontal">
+                    <i class="la la-search la-lg" aria-hidden="true"></i>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </nav>
+
+{% block content %}
+
+  <main id="site-content" data-v-component-post>
+
+    <!-- Single Blog Post Thumb -->
+    <!--
+	<div class="inner-page-hero" data-v-if="post.img">
+		<div class="title-container">
+			<h1 data-v-post-name>Post title</h1>
+		</div>
+		<img data-v-post-img loading="lazy" src="img/bg-img/bg-7.jpg" alt="">
+	</div>
+	-->
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div>
+            <!--
+					<h1 class="text-center" data-v-if-not="post.img" data-v-post-name>Page title</h1>
+					-->
+
+            <div class="" data-v-post-content>
+              <h2>Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</h2>
+              <p>Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean finibus velit id urna vehicula, nec maximus est sollicitudin. Praesent at tempus lectus, eleifend blandit felis. Fusce augue arcu, consequat a nisl aliquet, consectetur elementum turpis. Donec iaculis lobortis nisl, et viverra risus imperdiet eu. Etiam mollis posuere elit non sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis arcu a magna sodales venenatis. Integer non diam sit amet magna luctus mollis ac eu nisi. In accumsan tellus ut dapibus blandit.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <hr class="my-5 border">
+
+  <section class="py-5" title="team-1">
+    <div class="container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-7 text-center">
+          <h2 class="mb-3">Meet Our Team</h2>
+          <h3 class="text-muted">We are a group of professionals dedicated to their work</h3>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-3 mb-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <img alt="image" loading="lazy" src="img/sections/team/1.jpg" class="img-fluid p-4 rounded-circle">
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="pt-2">
+                <h4 class="mt-4 mb-0">John Doe</h4>
+                <h5 class="text-muted mb-3">CTO - Founder</h5>
+                <p class="text-muted">We are a group of professionals dedicated to their work</p>
+
+                <ul class="mb-0 list-inline mt-3">
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-facebook-f"></i>
+                      <span class="visually-hidden">Facebook</span>
+                      <span class="visually-hidden">Facebook</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-twitter"></i>
+                      <span class="visually-hidden">Twitter</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-instagram"></i>
+                      <span class="visually-hidden">Instagram</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-linkedin"></i>
+                      <span class="visually-hidden">Linkedin</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-3 mb-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <img alt="image" loading="lazy" src="img/sections/team/2.jpg" class="img-fluid p-4 rounded-circle">
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="pt-2">
+                <h4 class="mt-4 mb-0">John Doe</h4>
+                <h5 class="text-muted mb-3">CTO - Tech</h5>
+                <p class="text-muted">We are a group of professionals dedicated to their work</p>
+
+                <ul class="mb-0 list-inline mt-3">
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-facebook-f"></i>
+                      <span class="visually-hidden">Facebook</span>
+                      <span class="visually-hidden">Facebook</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-twitter"></i>
+                      <span class="visually-hidden">Twitter</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-instagram"></i>
+                      <span class="visually-hidden">Instagram</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-linkedin"></i>
+                      <span class="visually-hidden">Linkedin</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-3 mb-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <img alt="image" loading="lazy" src="img/sections/team/3.jpg" class="img-fluid p-4 rounded-circle">
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="pt-2">
+                <h4 class="mt-4 mb-0">John Doe</h4>
+                <h5 class="text-muted mb-3">CSO - Financial</h5>
+                <p class="text-muted">We are a group of professionals dedicated to their work</p>
+
+                <ul class="mb-0 list-inline mt-3">
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-facebook-f"></i>
+                      <span class="visually-hidden">Facebook</span>
+                      <span class="visually-hidden">Facebook</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-twitter"></i>
+                      <span class="visually-hidden">Twitter</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-instagram"></i>
+                      <span class="visually-hidden">Instagram</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-linkedin"></i>
+                      <span class="visually-hidden">Linkedin</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-3 mb-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <img alt="image" loading="lazy" src="img/sections/team/4.jpg" class="img-fluid p-4 rounded-circle">
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="pt-2">
+                <h4 class="mt-4 mb-0">John Doe</h4>
+                <h5 class="text-muted mb-3">CMO - Operations</h5>
+                <p class="text-muted">You can relay on our amazing features list and also our user services will be great experience.</p>
+
+                <ul class="mb-0 list-inline mt-3">
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-facebook-f"></i>
+                      <span class="visually-hidden">Facebook</span>
+                      <span class="visually-hidden">Facebook</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-twitter"></i>
+                      <span class="visually-hidden">Twitter</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-instagram"></i>
+                      <span class="visually-hidden">Instagram</span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="social-link">
+                      <i class="lab la-linkedin"></i>
+                      <span class="visually-hidden">Linkedin</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block foot %}
+
+  <footer class="footer-1" title="更多资讯" data-v-save-global="index.html,.footer-1">
+    <div class="container" data-v-component-menu="footer" data-v-slug="main-footer">
+
+      <div class="row" data-v-menu-items>
+
+        <div class="col-md-3">
+
+          <div data-v-component-site>
+            <img src="img/logo-white.png" alt="Site logo dark" loading="lazy" class="logo-default-dark" data-v-site-logo-dark>
+            <img src="img/logo.png" alt="Site logo" loading="lazy" class="logo-default" data-v-site-logo>
+          </div>
+
+        </div>
+
+
+        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
+          <div class="h6" data-v-menu-item-name>Vvveb</div>
+          <nav data-v-menu-item-recursive>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="https://themes.vvveb.com/" data-v-menu-item-url>
+                <span data-v-menu-item-name>Themes</span>
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="https://plugins.vvveb.com/" data-v-menu-item-url>
+                <span data-v-menu-item-name>Plugins</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
+          <div class="h6" data-v-menu-item-name>Resources</div>
+          <nav data-v-menu-item-recursive>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
+                <span data-v-menu-item-name>User documentation</span>
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
+                <span data-v-menu-item-name>Developer documentation</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
+          <div class="h6" data-v-menu-item-name>
+            <a href="" target="contact.html">Contact Us</a>
+          </div>
+          <nav data-v-menu-item-recursive>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.36659 9.96659L6.13325 11.1999C5.87325 11.4599 5.45992 11.4599 5.19325 11.2066C5.11992 11.1333 5.04659 11.0666 4.97325 10.9933C4.28659 10.2999 3.66659 9.57325 3.11325 8.81325C2.56659 8.05325 2.12659 7.29325 1.80659 6.53992C1.49325 5.77992 1.33325 5.05325 1.33325 4.35992C1.33325 3.90659 1.41325 3.47325 1.57325 3.07325C1.73325 2.66659 1.98659 2.29325 2.33992 1.95992C2.76659 1.53992 3.23325 1.33325 3.72659 1.33325C3.91325 1.33325 4.09992 1.37325 4.26659 1.45325C4.43992 1.53325 4.59325 1.65325 4.71325 1.82659L6.25992 4.00659C6.37992 4.17325 6.46659 4.32659 6.52659 4.47325C6.58659 4.61325 6.61992 4.75325 6.61992 4.87992C6.61992 5.03992 6.57325 5.19992 6.47992 5.35325C6.39325 5.50659 6.26658 5.66659 6.10659 5.82659L5.59992 6.35325C5.52658 6.42659 5.49325 6.51325 5.49325 6.61992C5.49325 6.67325 5.49992 6.71992 5.51325 6.77325C5.53325 6.82659 5.55325 6.86659 5.56659 6.90659C5.68659 7.12659 5.89325 7.41325 6.18658 7.75992C6.48658 8.10659 6.80658 8.45992 7.15325 8.81325C7.21992 8.87992 7.29325 8.94659 7.35992 9.01325C7.62659 9.27325 7.63325 9.69992 7.36659 9.96659Z" fill="#576575"></path>
+                <path d="M14.6466 12.2201C14.6466 12.4068 14.6132 12.6001 14.5466 12.7868C14.5266 12.8401 14.5066 12.8934 14.4799 12.9468C14.3666 13.1868 14.2199 13.4134 14.0266 13.6268C13.6999 13.9868 13.3399 14.2468 12.9332 14.4134C12.9266 14.4134 12.9199 14.4201 12.9132 14.4201C12.5199 14.5801 12.0932 14.6668 11.6332 14.6668C10.9532 14.6668 10.2266 14.5068 9.4599 14.1801C8.69324 13.8534 7.92657 13.4134 7.16657 12.8601C6.90657 12.6668 6.64657 12.4734 6.3999 12.2668L8.5799 10.0868C8.76657 10.2268 8.93324 10.3334 9.07324 10.4068C9.10657 10.4201 9.14657 10.4401 9.19324 10.4601C9.24657 10.4801 9.2999 10.4868 9.3599 10.4868C9.47324 10.4868 9.5599 10.4468 9.63324 10.3734L10.1399 9.87344C10.3066 9.70677 10.4666 9.58011 10.6199 9.50011C10.7732 9.40677 10.9266 9.36011 11.0932 9.36011C11.2199 9.36011 11.3532 9.38677 11.4999 9.44677C11.6466 9.50677 11.7999 9.59344 11.9666 9.70677L14.1732 11.2734C14.3466 11.3934 14.4666 11.5334 14.5399 11.7001C14.6066 11.8668 14.6466 12.0334 14.6466 12.2201Z" fill="#576575"></path>
+              </svg>
+              <span>+86 18117201781</span>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="mailto:1635987936@qq.com">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.3333 2.33325H4.66659C2.66659 2.33325 1.33325 3.33325 1.33325 5.66659V10.3333C1.33325 12.6666 2.66659 13.6666 4.66659 13.6666H11.3333C13.3333 13.6666 14.6666 12.6666 14.6666 10.3333V5.66659C14.6666 3.33325 13.3333 2.33325 11.3333 2.33325ZM11.6466 6.39325L9.55992 8.05992C9.11992 8.41325 8.55992 8.58659 7.99992 8.58659C7.43992 8.58659 6.87325 8.41325 6.43992 8.05992L4.35325 6.39325C4.13992 6.21992 4.10659 5.89992 4.27325 5.68659C4.44659 5.47325 4.75992 5.43325 4.97325 5.60659L7.05992 7.27325C7.56659 7.67992 8.42659 7.67992 8.93325 7.27325L11.0199 5.60659C11.2333 5.43325 11.5533 5.46659 11.7199 5.68659C11.8933 5.89992 11.8599 6.21992 11.6466 6.39325Z" fill="#576575"></path>
+                </svg>
+                1635987936@qq.com
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <p>关注公众号了解更多资讯</p>
+              <img src="img/wechat.jpg" alt="WeChat QRCode" loading="lazy" width="200">
+            </div>
+          </nav>
+        </div>
+
+
+      </div>
+      <!--
+		<div class="row justify-content-end">
+			<div class="col-md-3 text-muted text-small mt-5">
+				&copy; <span data-v-year>2023</span> <span data-v-sitename>Vvveb</span>. Powered by <a href="https://vvveb.com" target="_blank">Vvveb</a>
+			</div>
+		</div>
+		-->
+
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row">
+          <div class="text-muted flex-grow-1">
+            <a class="btn-link text-muted" href="/page/terms-conditions" target="_blank">Terms and conditions</a> |
+            <a class="btn-link text-muted" href="/page/privacy-policy" target="_blank">Privacy Policy</a>
+          </div>
+          <div class="text-muted">
+            <span data-v-year>2024</span>
+            <span data-v-global-site-title>智能工业视觉缺陷检测系统 上海理工大学</span>. <span>Powered by</span>
+            <a href="https://vvveb.com" class="btn-link text-muted" target="_blank">Vvveb</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+{% endblock %}
+
+  <div class="bg-image"></div>
+
+  <div class="alert alert-light alert-dismissible fade alert-top" role="alert" style="display:none">
+    <div class="container">
+
+      <div class="message">
+        Product was added to cart.
+      </div>
+
+
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+
+{% block script %}
+
+  <!-- Vvveb Common Js -->
+  <script id="jquery-js" src="js/jquery.min.js"></script>
+  <script id="bootstrap-bundle-js" src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animation -->
+  <link rel="stylesheet" href="js/aos.css">
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+
+  <script src="js/aos.js"></script>
+  <script>
+AOS.init();
+</script>
+
+  <script src="js/theme.js"></script>
+
+  <script>
+$(document).on("click", ".dropdown-toggle",function (e) {
+	let link = $(this);
+	let parent = link.parents(".nav-toggle");
+	if (link.hasClass("show")) {
+		parent.addClass("show");
+	} else {
+		parent.removeClass("show");
+	}
+});
+</script>
+
+<script src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
+<script>
+translate.language.setLocal('english'); //设置本地语种（当前网页的语种）。如果不设置，默认自动识别当前网页显示文字的语种。 可填写如 'english'、'chinese_simplified' 等，具体参见文档下方关于此的说明。
+translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
+translate.selectLanguageTag.languages = ['english', 'chinese_simplified', 'chinese_traditional', 'french', 'deutsch', 'spanish', 'japanese'];
+translate.nomenclature.append('chinese_simplified','english',`
+智能工业视觉缺陷检测系统=Intelligent Industrial Vision System for Defect Detection
+`);
+translate.nomenclature.append('english','chinese_simplified',`
+Intelligent Industrial Vision System for Defect Detection=智能工业视觉缺陷检测系统
+Dashboard=控制台
+`);
+translate.ignore.tag.push('meta');
+//translate.ignore.tag.push('title');
+translate.ignore.class.push('title');
+translate.execute();//进行翻译
+</script>
+
+{% endblock %}
+
+</body>
+
+</html>

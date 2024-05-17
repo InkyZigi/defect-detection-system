@@ -1,0 +1,232 @@
+{% extends 'home/nav.html' %}
+
+{% block content %}
+
+
+  <main id="site-content" data-v-component-post>
+
+    <!-- Single Blog Post Thumb -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div>
+            <h1 class="text-center" data-v-if-not="post.img" data-v-post-name>System Design</h1>
+
+            <div class="" data-v-post-content>
+              <h2>Algorithm Design: Several methods of algorithms has been listed as followed.</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5 border">
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>CNN</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>Convolutional Neural Network (CNN) is a deep learning model that can extract and learn image features through multi-layer neural network structures such as convolutional layers and pooling layers, thereby completing tasks such as image classification or semantic segmentation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/algorithm/cnn.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/algorithm/vgg.png" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>VGG-19</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-balance-scale-right la-lg"></i>
+              <p>The development of convolutional neural networks has gone through many stages, and the VGG model is an important milestone model. VGG19 is a representative model of the VGG series, with a simple and clear structure. It is composed of 16 stacked convolutional layers with the same kernel, and has achieved good generalization performance on the ImageNet dataset.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>Residual Network</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>Residual Network is a deep neural network architecture designed primarily to address gradient vanishing or exploding problems in deep neural networks, as well as mitigate potential model degradation issues.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>On the basis of the VGG19 network model, the residual network adds a short circuit mechanism between every two or three layers of the ordinary network (Plain Networks), and through residual deep learning, the model performs better.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/algorithm/residual.png" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/algorithm/distillation.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>Knowledge Distillation</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>Knowledge distillation is a type of teacher student training network structure that involves distillation training on a large and complex model (teacher model) that has been trained, transferring knowledge to a small, structurally simple model (student model), and obtaining a smaller scale, less computational resource required, and still maintaining original performance at the cost of slight performance loss.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-balance-scale-right la-lg"></i>
+              <p>The defect detection based on the student teacher network model mainly utilizes pixel level discriminative embedding features extracted from the pre trained network (teacher model) as input data, and performs distillation training on another relatively simple model (student model). The training of a model is actually to transform the problem of image defect detection into a problem of feature regression. On training data without anomalies, the student model simulates the output of the teacher model, so that the student model only provides erroneous predictions on defect data, thereby achieving recognition of abnormal data.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <hr class="my-5 border">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div>
+
+            <div class="" data-v-post-content>
+              <h2>System Design: How our system are constructed?</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>System Architecture Design: Website and Database.</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>The website is based on Django's MVT architecture, which encapsulates the page information of the embedded template engine through templates; Views are responsible for business processing, receiving HTTP requests and responses; The model is based on the ORM framework to achieve database interaction.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>After receiving requests from the client layer, the system transmits the data to the backend with the support of the template engine. It then provides reasonable feedback based on the different business needs of users, and finally calls the database interface on the data layer to process the data.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/product/structure.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/product/modules.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>System Module Design: Provides Users with Interaction-rich Modules</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-dice-one la-lg"></i>
+              <p>The production management module allows users to operate the interactive components of web pages to manage work tasks and form a production dashboard for data visualization.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-dice-two la-lg"></i>
+              <p>The model management module provides users with various algorithmic interactions and real-time monitoring functions, and additionally provides API data interfaces.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-dice-three la-lg"></i>
+              <p>The data retrieval module, based on database management, can provide users with functions for data search and statistics. Report management provides users with task summary functionality.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-dice-four la-lg"></i>
+              <p>The report management module provides functions for data analysis and summary.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a class="post-title">
+              <h2>System Database Design</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-database la-lg"></i>
+              <p>The overall E-R diagram of the system includes multiple entities such as employees, departments, enterprises, work orders, models, and approval forms, as well as various attributes within each entity and their relationships with different entities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/product/ER.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+{% endblock %}

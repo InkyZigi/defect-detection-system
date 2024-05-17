@@ -1,0 +1,110 @@
+{% extends 'home/nav.html' %}
+
+{% block content %}
+
+
+  <main id="site-content" data-v-component-post>
+
+    <!-- Single Blog Post Thumb -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div>
+            <h1 class="text-center" data-v-if-not="post.img" data-v-post-name>Technology Support</h1>
+
+            <div class="" data-v-post-content>
+              <h3>
+                The main technologies or architectures adopted by the system include Python language, PyTorch Lightning framework, Django framework, and PostgreSQL database, which are the key development technologies of the system.
+              </h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <hr class="my-5 border">
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <h3>Python and PyTorch-Lightning</h3>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>The Python programming language has a powerful developer ecosystem in the fields of data science and machine learning, and the system is mainly developed using Python. In terms of machine learning, the system adopts PyTorch Lightning as the main development framework.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>PyTorch Lightning is a lightweight PyTorch wrapper that provides developers with rich simplification methods, which helps maintain programming code in system design and reduces the difficulty of system design.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/pytorch.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/django.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <h3>Django Framework Technology</h3>
+            <div class="d-flex">
+              <i class="la la-balance-scale-right la-lg"></i>
+              <p>The backend services of the system are built using the Django framework.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-eye la-lg"></i>
+              <p>Django is a popular Python web framework that follows the MVT (Model View Template) architecture pattern and provides an ORM system, making data manipulation and transmission more convenient.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-file-alt la-lg"></i>
+              <p>Django's rich built-in and external components can also provide sufficient security and reliability guarantees for the backend services of the system.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7 col-sm-12">
+          <div class="col-text">
+            <h3>PostgreSQL Database Technology</h3>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>The system's database service selection is based on PostgreSQL as the core database. PostgreSQL database is one of the classic relational databases.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>Compared to MySQL database, it supports complex and advanced data types, has good scalability, and can meet the high consistency requirements of enterprise level databases, meeting the system's needs in data processing and storage.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/database.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

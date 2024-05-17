@@ -1,0 +1,111 @@
+{% extends 'home/nav.html' %}
+
+{% block content %}
+
+
+  <main id="site-content" data-v-component-post>
+
+    <!-- Single Blog Post Thumb -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div>
+            <h1 class="text-center" data-v-if-not="post.img" data-v-post-name>Frontend Design</h1>
+
+            <div class="" data-v-post-content>
+              <h2>How can we build such a website with brilliant style?</h2>
+              <p>
+                The main themes or templates adopted by the system include Vvveb Theme Design and Core UI Design both based on BoostrapJS.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <hr class="my-5 border">
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <h3>Boostrap.js</h3>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>Bootstrap.js is a JavaScript library that is part of the Bootstrap framework, a popular front-end development tool for building responsive and mobile-first websites. It provides a range of UI components, such as modals, dropdowns, tooltips, and popovers, which can be easily integrated into web pages to enhance user interactivity and user experience.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>Built on top of jQuery, Bootstrap.js includes custom plugins, responsive UI elements, and JavaScript-based utilities, allowing developers to create complex and dynamic UI elements that adapt to different screen sizes and devices. With its simple and customizable syntax, Bootstrap.js is a powerful tool for creating modern and interactive websites.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/coding.jpg" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/vvveb.png" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a href="https://www.vvveb.com/" class="post-title">
+              <h2>Vvveb</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-balance-scale-right la-lg"></i>
+              <p>The Vvveb themes design, characterized by its sleek and modern aesthetics, offers a versatile and customizable solution for developers.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-eye la-lg"></i>
+              <p>Vvveb combines a user-friendly interface with a strong emphasis on responsiveness, ensuring that websites built on this template look great and function seamlessly across various devices and screen sizes.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="d-flex showcase-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-text">
+            <a href="https://coreui.io/" class="post-title">
+              <h2>CoreUI</h2>
+            </a>
+            <div class="d-flex">
+              <i class="la la-business-time la-lg"></i>
+              <p>CoreUI theme template design is a robust and feature-rich framework that provides a clean and intuitive layout for web applications.</p>
+            </div>
+            <div class="d-flex">
+              <i class="la la-user-clock la-lg"></i>
+              <p>CoreUI leverages the power of Bootstrap to deliver a highly customizable and responsive design, with a vast library of reusable components that streamline the development process, enabling creators to build professional and visually appealing websites with ease.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-img">
+          <div class="video float-end">
+            <img src="img/sections/tech/coreui.webp" alt="Languages list" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
