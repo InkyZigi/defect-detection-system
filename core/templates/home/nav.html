@@ -198,7 +198,7 @@
                   </a>
                 </div>
                 <div data-v-menu-item class="nav-item" data-v-class-if-dropdown="category.children > 0">
-                  <a class="dropdown-item" href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
+                  <a class="dropdown-item" href="https://github.com/InkyZigi/defect-detection-web" data-v-menu-item-url>
                     <span data-v-menu-item-name data-v-if-not="category.type = 'text'">GitHub Documentation</span>
                     <span data-v-menu-item-content></span>
                   </a>
@@ -579,43 +579,74 @@
         </div>
 
 
-        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
-          <div class="h6" data-v-menu-item-name>Vvveb</div>
+        <div class="col-md-2" data-v-menu-item data-v-if="category.children > 0">
+          <div class="h6" data-v-menu-item-name>Product</div>
           <nav data-v-menu-item-recursive>
             <div data-v-menu-item data-v-if="category.children == 0">
-              <a href="https://themes.vvveb.com/" data-v-menu-item-url>
-                <span data-v-menu-item-name>Themes</span>
+              <a href="{% url 'home:system_design' %}" data-v-menu-item-url>
+                <span data-v-menu-item-name>Product Design</span>
               </a>
             </div>
             <div data-v-menu-item data-v-if="category.children == 0">
-              <a href="https://plugins.vvveb.com/" data-v-menu-item-url>
-                <span data-v-menu-item-name>Plugins</span>
+              <a href="https://github.com/InkyZigi/defect-detection-web" data-v-menu-item-url>
+                <span data-v-menu-item-name>Github Document</span>
               </a>
             </div>
           </nav>
         </div>
 
-        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
+        <div class="col-md-2" data-v-menu-item data-v-if="category.children > 0">
+          <div class="h6" data-v-menu-item-name>Solutions</div>
+          <nav data-v-menu-item-recursive>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="{% url 'home:design' %}" data-v-menu-item-url>
+                <span data-v-menu-item-name>Frontend Design</span>
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="{% url 'home:tech_support' %}" data-v-menu-item-url>
+                <span data-v-menu-item-name>Technology Support</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-md-2" data-v-menu-item data-v-if="category.children > 0">
           <div class="h6" data-v-menu-item-name>Resources</div>
           <nav data-v-menu-item-recursive>
             <div data-v-menu-item data-v-if="category.children == 0">
-              <a href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
-                <span data-v-menu-item-name>User documentation</span>
+              <a href="https://coreui.io/bootstrap/docs/" data-v-menu-item-url>
+                <span data-v-menu-item-name>CoreUI Developer Documentation</span>
               </a>
             </div>
             <div data-v-menu-item data-v-if="category.children == 0">
-              <a href="https://github.com/givanz/VvvebJs/wiki" data-v-menu-item-url>
-                <span data-v-menu-item-name>Developer documentation</span>
+              <a href="https://dev.vvveb.com/" data-v-menu-item-url>
+                <span data-v-menu-item-name>Vvveb Developer Documentation</span>
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="https://www.freepik.com/" data-v-menu-item-url>
+                <span data-v-menu-item-name>Free Illustration</span>
+              </a>
+            </div>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="http://translate.zvo.cn/" data-v-menu-item-url>
+                <span data-v-menu-item-name>Online Translating Service</span>
               </a>
             </div>
           </nav>
         </div>
 
-        <div class="col-md-3" data-v-menu-item data-v-if="category.children > 0">
+        <div class="col-md-2" data-v-menu-item data-v-if="category.children > 0">
           <div class="h6" data-v-menu-item-name>
-            <a href="" target="contact.html">Contact Us</a>
+            <a target="contact.html">Cooperation</a>
           </div>
           <nav data-v-menu-item-recursive>
+            <div data-v-menu-item data-v-if="category.children == 0">
+              <a href="{% url 'home:about' %}" data-v-menu-item-url>
+                <span data-v-menu-item-name>About Us</span>
+              </a>
+            </div>
             <div data-v-menu-item data-v-if="category.children == 0">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.36659 9.96659L6.13325 11.1999C5.87325 11.4599 5.45992 11.4599 5.19325 11.2066C5.11992 11.1333 5.04659 11.0666 4.97325 10.9933C4.28659 10.2999 3.66659 9.57325 3.11325 8.81325C2.56659 8.05325 2.12659 7.29325 1.80659 6.53992C1.49325 5.77992 1.33325 5.05325 1.33325 4.35992C1.33325 3.90659 1.41325 3.47325 1.57325 3.07325C1.73325 2.66659 1.98659 2.29325 2.33992 1.95992C2.76659 1.53992 3.23325 1.33325 3.72659 1.33325C3.91325 1.33325 4.09992 1.37325 4.26659 1.45325C4.43992 1.53325 4.59325 1.65325 4.71325 1.82659L6.25992 4.00659C6.37992 4.17325 6.46659 4.32659 6.52659 4.47325C6.58659 4.61325 6.61992 4.75325 6.61992 4.87992C6.61992 5.03992 6.57325 5.19992 6.47992 5.35325C6.39325 5.50659 6.26658 5.66659 6.10659 5.82659L5.59992 6.35325C5.52658 6.42659 5.49325 6.51325 5.49325 6.61992C5.49325 6.67325 5.49992 6.71992 5.51325 6.77325C5.53325 6.82659 5.55325 6.86659 5.56659 6.90659C5.68659 7.12659 5.89325 7.41325 6.18658 7.75992C6.48658 8.10659 6.80658 8.45992 7.15325 8.81325C7.21992 8.87992 7.29325 8.94659 7.35992 9.01325C7.62659 9.27325 7.63325 9.69992 7.36659 9.96659Z" fill="#576575"></path>
