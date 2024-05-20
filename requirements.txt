@@ -1,11 +1,6 @@
 # pipreqs ./ --encoding=utf8
 
 Django==4.1.12
-openai==1.12.0
-protobuf==4.25.3/3.9.2
-
-New
-Django==4.1.12
 openai==1.30.1
 protobuf==5.26.1
 psycopg2==2.9.9
