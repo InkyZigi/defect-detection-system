@@ -1,0 +1,249 @@
+{% extends 'navBar.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0 ms-2">
+    <li class="breadcrumb-item"><span>Home</span></li>
+    <li class="breadcrumb-item"><span>Tasks</span></li>
+    <li class="breadcrumb-item active"><span>DataV</span></li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="row row-cols-2">
+
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-plant"></use>
+              </svg> 工单信息说明
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="docs-example m-0 border-0">
+                  <h3>工单数据统计</h3>
+                  <p>&emsp;&emsp;系统的任务管理主要采用工单填写与审批实现。操作员新建工单填写工单信息，根据任务要求执行检测任务，完成后将工单提交于上级审批，审批完成后工单完结。</p>
+                </div>
+            </div>
+              <!-- /.col-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>折线图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>用户年审批统计图</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1001">
+                  <div class="c-chart-wrapper">
+                    <canvas id="statics-1"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>折线图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>用户年工单统计图</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
+                  <div class="c-chart-wrapper">
+                    <canvas id="statics-2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-->
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <a class="dropdown-item">
+              <svg class="icon me-2">
+                <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-plant"></use>
+              </svg> 数据集说明
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="docs-example m-0 border-0">
+                  <h3>MVTec AD数据集可视化</h3>
+                  <p>&emsp;&emsp;在工业检验领域上，MVTec AD（Munich Vision Technology GmbH Anomaly Detection）是一组用于无监督缺陷检测的综合性真实世界数据集，经常作为异常检测算法实验的基准测试数据集。总计含有3629张图像作为训练集，1725张图像作为测试集。训练集仅含有无异常数据，而测试集包括了各种异常类型与无异常的数据。数据集的各个检测类型都包含多个不同的缺陷种类，但是并没有统一的图像尺寸。</p>
+                  <p>&emsp;&emsp;该数据集包含15个类别，如表3.1所示，其中有十种类别代表微小刚性物件的图像：
+                    <br>Bottle（玻璃瓶底部）、Cable（电缆）、Capsule（胶囊）、Hazelnut（榛子）、Metal nut（金属螺母）、Pill（药丸）、Screw（螺丝）、Toothbrush（牙刷）、Transistor（晶体管）和Zipper（拉链）；
+                    <br>&emsp;&emsp;另有五种类别代表物料图像：
+                    <br>Carpet（地毯）、Grid（金属网格）、Leather（皮革）、Tile（瓷砖）和Wood（木板）。</p>
+                </div>
+            </div>
+              <!-- /.col-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>饼状图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>异常数据的总体分布</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1003">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-1"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>饼状图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>训练集与测试集说明</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1004">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>极地面积图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>各个检测类型的总数据量对比</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1005">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-3"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>极地面积图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>各个检测类型的正常数据量对比</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1006">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-4"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>极地面积图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>各个检测类型的异常数据量对比</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1007">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-5"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-->
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-header"><strong>极地面积图</strong><span class="small ms-1"></span></div>
+          <div class="card-body">
+            <div class="example">
+              <div class="nav ">
+                <strong>各个检测类型的缺陷种类对比</strong>
+              </div>
+              <div class="tab-content rounded-bottom">
+                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1008">
+                  <div class="c-chart-wrapper">
+                    <canvas id="dataset-6"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="user_sheets_data" data-template-var="{{ user_sheets_data }}"></div>
+<div id="approved_sheets_data" data-template-var="{{ approved_sheets_data }}"></div>
+<div id="unapproved_sheets_data" data-template-var="{{ unapproved_sheets_data }}"></div>
+
+{% endblock %}
+
+{% block script %}
+<script src="js/datav.js"></script>
+{% endblock %}

@@ -29,11 +29,10 @@
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon32.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon32.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon32.ico">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -58,18 +57,18 @@
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-speedometer"></use>
             </svg> 控制台</a></li>
         <li class="nav-title">功能区</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <li class="nav-group"><a class="nav-link nav-group-toggle">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use>
             </svg> 生产管理</a>
           <ul class="nav-group-items">
             <li class="nav-item"><a class="nav-link" href="{% url 'detection:sheet' %}">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list"></use></svg> 任务管理</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:datav' %}">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-chart-line"></use></svg> 数据可视化</a></li>
           </ul>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <li class="nav-group"><a class="nav-link nav-group-toggle">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-3d"></use>
             </svg> 模型管理</a>
@@ -82,25 +81,25 @@
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-memory"></use></svg> 计算效率</a></li>
           </ul>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <li class="nav-group"><a class="nav-link nav-group-toggle">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lightbulb"></use>
             </svg> 数据检索</a>
           <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="base/accordion.html">
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:search' %}">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-magnifying-glass"></use></svg> 精准搜索</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:history' %}">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-puzzle"></use></svg> 历史数据</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html">
+            <li class="nav-item"><a class="nav-link" href="/detection/work/history/">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-loop-circular"></use></svg> 相似度计算</a></li>
           </ul>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <li class="nav-group"><a class="nav-link nav-group-toggle">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-print"></use>
             </svg> 报告管理</a>
           <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="base/accordion.html">
+            <li class="nav-item"><a class="nav-link" ">
                 <svg class="nav-icon"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-library"></use></svg> 报告生成</a></li>
           </ul>
         </li>
@@ -149,9 +148,9 @@
               <use xlink:href="assets/brand/coreui.svg#full"></use>
             </svg></a>
           <ul class="header-nav d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link" href="#">控制台</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'detection:index' %}">控制台</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'detection:profile' %}">账户信息</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">环境设置</a></li>
+            <li class="nav-item"><a class="nav-link" href="">环境设置</a></li>
           </ul>
           <ul class="header-nav ms-auto">
             <li class="nav-item"><a class="nav-link">

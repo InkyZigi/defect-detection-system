@@ -96,7 +96,7 @@
                 <div class="card-header"><strong>图像检测</strong></div>
                 <div class="card-body">
                   <p class="text-medium-emphasis small">上传图像后根据已选的模型进行异常检测</p>
-                    <form action="" method="post" class="row g-3 align-items-center needs-validation" enctype="multipart/form-data" novalidate>
+                    <form method="post" class="row g-3 align-items-center needs-validation" enctype="multipart/form-data" novalidate>
                         {% csrf_token %}
                         <div class="input-group">
                           <input type="file" class="form-control" name="image" id="inputGroupFile" aria-describedby="inputGroupFileAdd" aria-label="Upload">
@@ -132,7 +132,7 @@
               </div>
             </div>
             <!--Section-->
-            <div class="col-12">
+            <div class="col-12" id="sectionD">
               <div class="card mb-4">
                 <div class="card-header"><strong>检测结果</strong></div>
                 <div class="card-body">
@@ -143,15 +143,15 @@
                             <div class="row align-items-center">
                                 <div class="col-4">
                                     <p>待测物件图像</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.origin }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                                 <div class="col-4">
                                     <p>综合异常热力图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_amap.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.amap }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                                 <div class="col-4">
                                     <p>综合热力实物合成图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_amap_on_img.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.amap_on_img }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                             </div>
                         </div>
@@ -160,15 +160,15 @@
                             <div class="row align-items-center">
                                 <div class="col-4">
                                     <p>原16×16尺度异常热力图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am16.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.am16 }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                                 <div class="col-4">
                                     <p>原32×32尺度异常热力图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am32.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.am32 }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                                 <div class="col-4">
                                     <p>原64×64尺度异常热力图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_am64.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.am64 }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
                             <div class="row align-items-center">
                                 <div class="col-4">
                                     <p>黑白缺陷检测图</p>
-                                    <img src="http://127.0.0.1:8000/detection\media\image\E0002_gt.jpg" class="rounded img-thumbnail " alt="未生成图像...">
+                                    <img src="{{ request.session.detect_dict.gt }}" class="rounded img-thumbnail " alt="未生成图像...">
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,18 @@
               <div class="card mb-4">
                 <div class="card-header"><strong>计算效率</strong></div>
                 <div class="card-body">
-
+                    <p class="text-medium-emphasis small">检测计算耗时：</p>
+                    {% if detect_time %}
+                    <strong>{{ detect_time }}秒</strong>
+                    {% else %}
+                    <p>暂无检测</p>
+                    {% endif %}
+                    <p class="text-medium-emphasis small">系统运行总耗时：</p>
+                    {% if run_time %}
+                    <strong>{{ run_time }}秒</strong>
+                    {% else %}
+                    <p>暂无运行</p>
+                    {% endif %}
                 </div>
               </div>
             </div>

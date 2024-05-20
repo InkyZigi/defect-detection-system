@@ -25,8 +25,6 @@ urlpatterns = [
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
     path('index/', views.dashborad),
     path('card/', views.card),
-    path('chart/', views.chart),
-    path('coreui/dist/<str:html>/', views.shift),
 ]
 
 # user management
@@ -45,6 +43,9 @@ urlpatterns += [
     path('work/model/', views.model, name='model'),
     path('work/sheet/', views.sheet, name='sheet'),
     path('work/sheet/op/', views.sheet_op, name='sheet_op'),
+    path('work/datav/', views.datav, name='datav'),
+    path('work/search/', views.search, name='search'),
+    path('work/history/', views.history, name='history'),
 ]
 
 # models

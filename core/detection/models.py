@@ -34,6 +34,7 @@ class Employee(models.Model):
     DID = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='employees')
     ContactNum = models.CharField(max_length=20, null=True)
     Role = models.CharField(max_length=20, choices=(('A', 'admin'), ('M', 'manager'), ('P', 'operator')))
+    Description = models.JSONField(null=True)
 
     class Meta:
         db_table = 'employees'

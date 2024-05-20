@@ -17,17 +17,23 @@ const random = (min, max) =>
 // eslint-disable-next-line no-mixed-operators
 Math.floor(Math.random() * (max - min + 1) + min);
 
+// data
+var user_sheets_data =  JSON.parse(document.getElementById('user_sheets_data').dataset.templateVar);
+var department_sheets_data = JSON.parse(document.getElementById('department_sheets_data').dataset.templateVar);
+var approved_sheets_data = JSON.parse(document.getElementById('approved_sheets_data').dataset.templateVar);
+var unapproved_sheets_data = JSON.parse(document.getElementById('unapproved_sheets_data').dataset.templateVar);
+
 // eslint-disable-next-line no-unused-vars
 const cardChart1 = new Chart(document.getElementById('card-chart1'), {
   type: 'line',
   data: {
     labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     datasets: [{
-      label: 'My First dataset',
+      label: '用户工单数',
       backgroundColor: 'transparent',
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: coreui.Utils.getStyle('--cui-primary'),
-      data: [65, 59, 84, 84, 51, 55, 40, 65, 59, 84, 84, 51]
+      data: user_sheets_data
     }]
   },
   options: {
@@ -48,8 +54,8 @@ const cardChart1 = new Chart(document.getElementById('card-chart1'), {
         }
       },
       y: {
-        min: 30,
-        max: 89,
+        min: -2,
+        max: 10,
         display: false,
         grid: {
           display: false
@@ -79,11 +85,11 @@ const cardChart2 = new Chart(document.getElementById('card-chart2'), {
   data: {
     labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     datasets: [{
-      label: 'My First dataset',
+      label: '部门工单数',
       backgroundColor: 'transparent',
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: coreui.Utils.getStyle('--cui-info'),
-      data: [1, 18, 9, 17, 34, 22, 11, 9, 17, 34, 22, 11]
+      data: department_sheets_data
     }]
   },
   options: {
@@ -104,8 +110,8 @@ const cardChart2 = new Chart(document.getElementById('card-chart2'), {
         }
       },
       y: {
-        min: -9,
-        max: 39,
+        min: -2,
+        max: 10,
         display: false,
         grid: {
           display: false
@@ -140,21 +146,21 @@ const mainChart = new Chart(document.getElementById('main-chart'), {
       borderColor: coreui.Utils.getStyle('--cui-success'),
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
-      data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)],
+      data: approved_sheets_data,
       fill: true
     }, {
       label: '未审批工单',
       borderColor: coreui.Utils.getStyle('--cui-danger'),
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
-      data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)]
+      data: unapproved_sheets_data
     }, {
       label: '基准线',
       borderColor: coreui.Utils.getStyle('--cui-warning'),
       pointHoverBackgroundColor: '#fff',
       borderWidth: 1,
       borderDash: [8, 5],
-      data: [65, 65, 65, 65, 65, 65, 65]
+      data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     }]
   },
   options: {
