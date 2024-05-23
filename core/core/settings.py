@@ -73,19 +73,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ProductionSys',
-        'USER': 'postgres',
-        'PASSWORD': 'lab203203203',
-        'HOST': '10.41.50.24',
-        'PORT': '5432'
-    },
-    'schema2': {
-
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ProductionSys',
+#         'USER': 'postgres',
+#         'PASSWORD': 'xxx',
+#         'HOST': '10.41.50.24',
+#         'PORT': '5432'
+#     },
+#     'schema2': {
+#
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -138,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace(r"\\", "/")
 
-# strict MIME type checking is enabled or unenabled.
+# strict MIME type checking is enabled or disabled.
 SECURE_CONTENT_TYPE_NOSNIFF = False
 import mimetypes
 mimetypes.add_type('text/css', '.css')
