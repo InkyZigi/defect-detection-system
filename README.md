@@ -25,9 +25,9 @@
 
 ## Demonstration
 
-![business web](docs/business.png)
+![business web](docs_old/business.png)
 
-![dashboard](docs/dashboard.png)
+![dashboard](docs_old/dashboard.png)
 
 ## Dev
 
